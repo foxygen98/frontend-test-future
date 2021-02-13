@@ -1,0 +1,4 @@
+.UserInformationBlock {
+  display: flex;
+  flex-direction: column;
+}

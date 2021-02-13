@@ -1,0 +1,24 @@
+.Table {
+  display: flex;
+  flex-direction: column;
+}
+
+.TableRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.TableRow:hover {
+  background-color: whitesmoke;
+}
+
+.Rows {
+  display: flex;
+  background-color: #000;
+  flex-direction: column;
+}
+
+.ColumnName {
+  width: 100px;
+}
