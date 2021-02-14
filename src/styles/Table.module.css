@@ -5,8 +5,8 @@
 
 .TableRow {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  width: 720px;
+  /* background-color: #000; */
 }
 
 .TableRow:hover {
@@ -19,6 +19,33 @@
   flex-direction: column;
 }
 
-.ColumnName {
-  width: 100px;
+.Column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid grey;
+}
+
+.id {
+  width: 50px;
+}
+
+.email {
+  width: 250px;
+}
+
+.phone {
+  width: 200px;
+}
+
+.SortIcon {
+  margin-left: 5px;
+  width: 20px;
+}
+
+.LoadingIcon {
+  width: 70px;
 }

@@ -8,6 +8,21 @@ import UserInformation from './UserInformation'
 
 function App() {
   const [selectedData, setSelectedData] = useState('')
+  const [searchInput, setSearchInput] = useState('')
+  const [newUser, setNewUser] = useState({
+    address: {
+      city: '',
+      state: '',
+      streetAddress: '',
+      zip: '',
+    },
+    description: '',
+    email: '',
+    firstName: '',
+    id: -1,
+    lastName: '',
+    phone: '',
+  })
   const [selectedUser, setSelectedUser] = useState({
     address: {
       city: '',
@@ -34,9 +49,15 @@ function App() {
   return (
     <div className="App">
       <DataSelection setSelectedData={setSelectedData} />
-      <UserCreationForm />
-      <SearchForm />
-      <Table selectedData={selectedData} setSelectedUser={setSelectedUser} />
+      <UserCreationForm setNewUser={setNewUser} />
+      <SearchForm setSearchInput={setSearchInput} />
+      <Table 
+        newUser={newUser}
+        setNewUser={setNewUser}
+        selectedData={selectedData}
+        setSelectedUser={setSelectedUser}
+        searchInput={searchInput}
+      />
       <UserInformation selectedUser={selectedUser} />
     </div>
   )
