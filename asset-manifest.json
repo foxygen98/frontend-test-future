@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/frontend-test-future/static/css/main.81b2a92a.chunk.css",
+    "main.js": "/frontend-test-future/static/js/main.309dac6b.chunk.js",
+    "main.js.map": "/frontend-test-future/static/js/main.309dac6b.chunk.js.map",
+    "runtime-main.js": "/frontend-test-future/static/js/runtime-main.52ae8ee9.js",
+    "runtime-main.js.map": "/frontend-test-future/static/js/runtime-main.52ae8ee9.js.map",
+    "static/js/2.58f8d745.chunk.js": "/frontend-test-future/static/js/2.58f8d745.chunk.js",
+    "static/js/2.58f8d745.chunk.js.map": "/frontend-test-future/static/js/2.58f8d745.chunk.js.map",
+    "static/js/3.f5661aa5.chunk.js": "/frontend-test-future/static/js/3.f5661aa5.chunk.js",
+    "static/js/3.f5661aa5.chunk.js.map": "/frontend-test-future/static/js/3.f5661aa5.chunk.js.map",
+    "index.html": "/frontend-test-future/index.html",
+    "static/css/main.81b2a92a.chunk.css.map": "/frontend-test-future/static/css/main.81b2a92a.chunk.css.map",
+    "static/js/2.58f8d745.chunk.js.LICENSE.txt": "/frontend-test-future/static/js/2.58f8d745.chunk.js.LICENSE.txt",
+    "static/media/ascending-sort-icon.b8101c92.svg": "/frontend-test-future/static/media/ascending-sort-icon.b8101c92.svg",
+    "static/media/descending-sort-icon.841642dd.svg": "/frontend-test-future/static/media/descending-sort-icon.841642dd.svg",
+    "static/media/loading-icon.0d411c3a.svg": "/frontend-test-future/static/media/loading-icon.0d411c3a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52ae8ee9.js",
+    "static/js/2.58f8d745.chunk.js",
+    "static/css/main.81b2a92a.chunk.css",
+    "static/js/main.309dac6b.chunk.js"
+  ]
+}
