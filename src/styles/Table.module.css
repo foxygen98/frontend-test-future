@@ -1,0 +1,71 @@
+.Table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TableRow {
+  display: flex;
+  width: 720px;
+  outline: none;
+}
+
+.TableRow:hover {
+  color: #fff;
+  background-color: #9ac6c5;
+}
+
+.TableRow:first-child {
+  background-color: #b9b8b9;
+  color: #fff;
+  border-top: 1px solid rgb(43, 42, 42);
+}
+
+.Column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  overflow: hidden;
+  border-left: 1px solid rgb(43, 42, 42);
+  border-bottom: 1px solid rgb(43, 42, 42);
+}
+
+.id {
+  width: 50px;
+}
+
+.email {
+  width: 250px;
+}
+
+.phone {
+  width: 200px;
+}
+
+.phone:last-child {
+  border-right: 1px solid rgb(43, 42, 42);
+}
+
+.SortIcon {
+  margin-left: 5px;
+  width: 20px;
+  fill: #fff;
+}
+
+.LoadingIcon {
+  margin-bottom: 20px;
+  width: 70px;
+  fill: #9ac6c5;
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
