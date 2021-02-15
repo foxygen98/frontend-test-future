@@ -26,7 +26,16 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
   useEffect(() => {
     setUsersData(undefined)
     fetch(url)
-      .then(resp => resp.json())
+      .then(resp => {
+        if (resp.ok) {
+          return resp.json()
+        }
+        return resp.json().then(err => {
+          const error = new Error('Данные не были получены')
+          error.data = err
+          throw error
+        })
+      })
       .then(data => {
         data.sort((prev, next) => prev.id - next.id)
         setUsersData(data)
@@ -77,8 +86,8 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
       setFunction = setUsersData
     }
 
-    numberOfPages = Math.ceil(users.length / 10)
-    shownUserList = users.slice((pageNumber - 1) * 10, pageNumber * 10)
+    numberOfPages = Math.ceil(users.length / 15)
+    shownUserList = users.slice((pageNumber - 1) * 15, pageNumber * 15)
 
     if (pageNumber > numberOfPages) {
       setPageNumber(numberOfPages)
