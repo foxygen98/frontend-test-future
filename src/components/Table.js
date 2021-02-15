@@ -40,6 +40,8 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
         data.sort((prev, next) => prev.id - next.id)
         setUsersData(data)
       })
+      // eslint-disable-next-line no-console
+      .catch(err => console.log(err))
   }, [url])
 
   useEffect(() => {
