@@ -48,7 +48,7 @@ function UserCreationForm({ setNewUser }) {
               type="text"
               name="id"
               placeholder="id"
-              pattern="[0-9]{}"
+              pattern="[0-9]{1,}"
               title="id может быть только положительным числом или 0"
               className={styles.Input}
               onChange={changeInputHandler}

@@ -66,12 +66,22 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
   }
 
   if (usersData) {
+    let users
+    let setFunction
+
     if (searchInput && filteredUsers) {
-      numberOfPages = Math.ceil(filteredUsers.length / 10)
-      shownUserList = filteredUsers.slice((pageNumber - 1) * 10, pageNumber * 10)
+      users = filteredUsers
+      setFunction = setFilteredUsers
     } else {
-      numberOfPages = Math.ceil(usersData.length / 10)
-      shownUserList = usersData.slice((pageNumber - 1) * 10, pageNumber * 10)
+      users = usersData
+      setFunction = setUsersData
+    }
+
+    numberOfPages = Math.ceil(users.length / 10)
+    shownUserList = users.slice((pageNumber - 1) * 10, pageNumber * 10)
+
+    if (pageNumber > numberOfPages) {
+      setPageNumber(numberOfPages)
     }
 
     return (
@@ -81,13 +91,13 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
           setSortingDirection={setSortingDirection}
           sortableField={sortableField}
           setSortableField={setSortableField}
-          usersData={usersData}
-          setUsersData={setUsersData}
+          usersData={users}
+          setUsersData={setFunction}
         />
         {shownUserList
           .map(user => (
             <div 
-              key={`${user.id} ${user.firstName}`}
+              key={`${user.id} ${user.firstName} ${user.email}`}
               role="button"
               tabIndex={0}
               className={styles.TableRow}

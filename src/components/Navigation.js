@@ -7,7 +7,9 @@ function Navigation({ numberOfPages, pageNumber, setPageNumber }) {
 
   function changePage(event) {
     if (event.type === 'keypress' && event.charCode === 13) {
-      setPageNumber(Number(event.target.value))
+      if (Number(event.target.value) > 0) {
+        setPageNumber(Number(event.target.value))
+      }
       event.target.value = ''
     } else if (event.type === 'click') {
       setPageNumber(Number(event.target.name))
