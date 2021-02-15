@@ -16,10 +16,10 @@ function Navigation({ numberOfPages, pageNumber, setPageNumber }) {
 
   return (
     <nav className={styles.NavigationBlock}>
-      <button type="button" name="1" onClick={changePage}> в начало </button>
+      <button type="button" name="1" onClick={changePage} className={styles.MoveButton}> в начало </button>
       <ChangePageButtons numberOfPages={numberOfPages} pageNumber={pageNumber} changePage={changePage} />
-      <button type="button" name={numberOfPages} onClick={changePage}> в конец </button>
-      <input type="text" placeholder="№ страницы" onKeyPress={changePage} />
+      <button type="button" name={numberOfPages} onClick={changePage} className={styles.MoveButton}> в конец </button>
+      <input type="text" placeholder="№" onKeyPress={changePage} className={styles.SearchPage} />
     </nav>
   )
 }

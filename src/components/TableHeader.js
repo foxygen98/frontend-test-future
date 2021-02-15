@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styles from '../styles/Table.module.css'
 import { ReactComponent as DescendingSortIcon } from '../icons/descending-sort-icon.svg'
 import { ReactComponent as AscendingSortIcon } from '../icons/ascending-sort-icon.svg'
+import { USER_PROP_TYPE } from '../constants/variables'
 
 function TableHeader({ sortingDirection, setSortingDirection, sortableField, setSortableField, usersData, setUsersData }) {
   const sortData = usersData
@@ -55,7 +56,7 @@ Cell.propTypes = {
 TableHeader.propTypes = {
   sortingDirection: PropTypes.number.isRequired,
   setSortingDirection: PropTypes.func.isRequired,
-  usersData: PropTypes.shape([]).isRequired,
+  usersData: PropTypes.arrayOf(USER_PROP_TYPE).isRequired,
   setUsersData: PropTypes.func.isRequired,
   sortableField: PropTypes.string.isRequired,
   setSortableField: PropTypes.func.isRequired,

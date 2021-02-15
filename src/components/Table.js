@@ -5,6 +5,7 @@ import TableHeader from './TableHeader'
 import Navigation from './Navigation'
 import { ReactComponent as LoadingIcon } from '../icons/loading-icon.svg'
 import { SMALL_DATA_URL, LARGE_DATA_URL } from '../constants/urls'
+import { USER_PROP_TYPE, USER_OBJECT } from '../constants/variables'
 
 function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput }) {
   const [usersData, setUsersData] = useState(undefined)
@@ -35,28 +36,15 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
   useEffect(() => {
     if (usersData && newUser.id !== -1) {
       setUsersData([newUser, ...usersData])
-      setNewUser({
-        address: {
-          city: '',
-          state: '',
-          streetAddress: '',
-          zip: '',
-        },
-        description: '',
-        email: '',
-        firstName: '',
-        id: -1,
-        lastName: '',
-        phone: '',
-      })
+      setNewUser(USER_OBJECT)
     }
-  }, [newUser, usersData, setNewUser])
+  }, [newUser, setNewUser, usersData])
 
   useEffect(() => {
     if (usersData) {
       setFilteredUsers(filterUsers(searchInput, usersData))
     }
-  }, [searchInput])
+  }, [searchInput, usersData])
 
   function filterUsers(value, usersList) {
     // Не будем учитывать регистр
@@ -129,20 +117,7 @@ function Table({ newUser, setNewUser, selectedData, setSelectedUser, searchInput
 Table.propTypes = {
   selectedData: PropTypes.string.isRequired,
   setSelectedUser: PropTypes.func.isRequired,
-  newUser: PropTypes.shape({
-    address: PropTypes.shape({
-      city: PropTypes.string.isRequired,
-      state: PropTypes.string.isRequired,
-      streetAddress: PropTypes.string.isRequired,
-      zip: PropTypes.string.isRequired,
-    }),
-    description: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    firstName: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    lastName: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
-  }).isRequired,
+  newUser: USER_PROP_TYPE.isRequired,
   setNewUser: PropTypes.func.isRequired,
   searchInput: PropTypes.string.isRequired,
 }

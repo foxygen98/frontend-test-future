@@ -1,4 +1,24 @@
 .UserInformationBlock {
   display: flex;
   flex-direction: column;
+  border: 1px solid rgb(43, 42, 42);
+  width: 720px;
+  height: auto;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.TextAreaData,
+.Data {
+  font-size: 18px;
+  color: rgb(43, 42, 42);
+  font-weight: bold;
+}
+
+.TextAreaData {
+  border: none;
+  resize: none;
+  outline: none;
 }

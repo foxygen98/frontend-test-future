@@ -1,64 +1,43 @@
 import React, { useState } from 'react'
-import '../styles/App.css'
+import styles from '../styles/App.module.css'
 import DataSelection from './DataSelection'
 import UserCreationForm from './UserCreationForm'
 import SearchForm from './SearchForm'
 import Table from './Table.js'
 import UserInformation from './UserInformation'
+import { USER_OBJECT } from '../constants/variables'
 
 function App() {
   const [selectedData, setSelectedData] = useState('')
   const [searchInput, setSearchInput] = useState('')
-  const [newUser, setNewUser] = useState({
-    address: {
-      city: '',
-      state: '',
-      streetAddress: '',
-      zip: '',
-    },
-    description: '',
-    email: '',
-    firstName: '',
-    id: -1,
-    lastName: '',
-    phone: '',
-  })
-  const [selectedUser, setSelectedUser] = useState({
-    address: {
-      city: '',
-      state: '',
-      streetAddress: '',
-      zip: '',
-    },
-    description: '',
-    email: '',
-    firstName: '',
-    id: -1,
-    lastName: '',
-    phone: '',
-  })
+  const [newUser, setNewUser] = useState(USER_OBJECT)
+  const [selectedUser, setSelectedUser] = useState(USER_OBJECT)
 
   if (!selectedData) {
     return (
-      <div className="App">
+      <div>
         <DataSelection setSelectedData={setSelectedData} />
       </div>
     )
   }
 
   return (
-    <div className="App">
+    <div className={styles.AppContainer}>
       <DataSelection setSelectedData={setSelectedData} />
-      <UserCreationForm setNewUser={setNewUser} />
-      <SearchForm setSearchInput={setSearchInput} />
-      <Table 
-        newUser={newUser}
-        setNewUser={setNewUser}
-        selectedData={selectedData}
-        setSelectedUser={setSelectedUser}
-        searchInput={searchInput}
-      />
-      <UserInformation selectedUser={selectedUser} />
+      <div className={styles.ContentContainer}>
+        <div className={styles.ButtonAndForm}>
+          <UserCreationForm setNewUser={setNewUser} />
+          <SearchForm setSearchInput={setSearchInput} />
+        </div>
+        <Table 
+          newUser={newUser}
+          setNewUser={setNewUser}
+          selectedData={selectedData}
+          setSelectedUser={setSelectedUser}
+          searchInput={searchInput}
+        />
+        <UserInformation selectedUser={selectedUser} />
+      </div>
     </div>
   )
 }

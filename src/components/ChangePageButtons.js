@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styles from '../styles/Navigation.module.css'
 
 function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
   const pageButtons = Array(numberOfPages).fill(0).map((item, ind) => ind + 1)
@@ -10,7 +11,7 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
         {pageButtons
           .slice(0, 5)
           .map(button => (
-            <button key={button} type="button" name={button} onClick={changePage}>{button}</button>
+            <button key={button} type="button" name={button} className={styles.Button} onClick={changePage}>{button}</button>
           ))
         }
       </div>
@@ -23,7 +24,7 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
         {pageButtons
           .slice(numberOfPages - 5, numberOfPages)
           .map(button => (
-            <button key={button} type="button" name={button} onClick={changePage}>{button}</button>
+            <button key={button} type="button" name={button} className={styles.Button} onClick={changePage}>{button}</button>
           ))
         }
       </div>
@@ -35,7 +36,7 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
       {pageButtons
         .slice(pageNumber - 3, pageNumber + 2)
         .map(button => (
-          <button key={button} type="button" name={button} onClick={changePage}>{button}</button>
+          <button key={button} type="button" name={button} className={styles.Button}  onClick={changePage}>{button}</button>
         ))
       }
     </div>
