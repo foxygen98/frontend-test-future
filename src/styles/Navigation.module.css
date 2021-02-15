@@ -4,7 +4,12 @@
   margin: 20px 0px;
 }
 
+.ButtonsContainer {
+  display: flex;
+}
+
 .MoveButton,
+.ButtonActive,
 .Button {
   margin: 2px;
   border: none;
@@ -26,6 +31,10 @@
 
 .MoveButton {
   width: 90px;
+}
+
+.ButtonActive {
+  background-color: #5b2a86;
 }
 
 .SearchPage {

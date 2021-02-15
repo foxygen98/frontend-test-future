@@ -7,11 +7,11 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
 
   if (pageNumber <= 3 || numberOfPages <= 5) {
     return (
-      <div>
+      <div className={styles.ButtonsContainer}>
         {pageButtons
           .slice(0, 5)
           .map(button => (
-            <button key={button} type="button" name={button} className={styles.Button} onClick={changePage}>{button}</button>
+            <ChangePageButton key={button} button={button} pageNumber={pageNumber} changePage={changePage} />
           ))
         }
       </div>
@@ -20,11 +20,11 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
 
   if (pageNumber > numberOfPages - 3) {
     return (
-      <div>
+      <div className={styles.ButtonsContainer}>
         {pageButtons
           .slice(numberOfPages - 5, numberOfPages)
           .map(button => (
-            <button key={button} type="button" name={button} className={styles.Button} onClick={changePage}>{button}</button>
+            <ChangePageButton key={button} button={button} pageNumber={pageNumber} changePage={changePage} />
           ))
         }
       </div>
@@ -32,11 +32,11 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
   }
 
   return (
-    <div>
+    <div className={styles.ButtonsContainer}>
       {pageButtons
         .slice(pageNumber - 3, pageNumber + 2)
         .map(button => (
-          <button key={button} type="button" name={button} className={styles.Button}  onClick={changePage}>{button}</button>
+          <ChangePageButton key={button} button={button} pageNumber={pageNumber} changePage={changePage} />
         ))
       }
     </div>
@@ -45,6 +45,21 @@ function ChangePageButtons({ numberOfPages, pageNumber, changePage }) {
 
 ChangePageButtons.propTypes = {
   numberOfPages: PropTypes.number.isRequired,
+  pageNumber: PropTypes.number.isRequired,
+  changePage: PropTypes.func.isRequired,
+}
+
+function ChangePageButton({ button, pageNumber, changePage }) {
+  return (
+    <div>
+      {pageNumber === button && <button type="button" name={button} className={styles.ButtonActive} onClick={changePage}>{button}</button>}
+      {pageNumber !== button && <button type="button" name={button} className={styles.Button} onClick={changePage}>{button}</button>}
+    </div>
+  )
+}
+
+ChangePageButton.propTypes = {
+  button: PropTypes.number.isRequired,
   pageNumber: PropTypes.number.isRequired,
   changePage: PropTypes.func.isRequired,
 }
